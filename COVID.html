@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>COVID Tracker</title>
+<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+
+
+
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">covid19madurai.com</a>
+    </div>
+ 
+	</div>
+</nav>
+<div class="jumbotron text-center">
+  <h2><b>COVID-19 MADURAI TRACKER</b></h2>
+  <p>Stay home ! Stay safe !!</p> 
+</div>
+<div class="container">
+  <h2> </h2>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+	
+
+
+<div class ="container">
+
+<center><h1>COVID-19 Madurai Tracker</h1></center></div></div>
+  
+<div class="panel-body">
+<div class="col-md-5">  	
+<h2><B>Corona Virus Statistics in Madurai<br></B></h2> 
+<p id="disp"></p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+var url="https://api.covid19india.org/state_district_wise.json";
+var s="Tamil Nadu";
+var d="Madurai";
+var dat="";
+var active,recovered,deaths;
+$(document).ready(function(){
+init()
+
+function init(){
+
+$.get(url,function(data){
+console.log(data);
+dat ="<b>State </b>"+s+"<br><br><b>District - </b>"+d +"<br><br><b> Total cases - </b>"+data[ s ].districtData[ d ].confirmed+
+"<br><b>Active cases - </b>"+data[ s ].districtData[ d ].active+"<br><b>Total recovered - </b>"
++data[ s ].districtData[ d ].recovered+"<br><b>Total deaths - </b>"+data[ s ].districtData[ d ].deceased+
+"<br><br><h3><b>Today</b></h3><b>Today cases - </b>"+data[ s ].districtData[ d ].delta.confirmed+"<br><b>Today recovered - </b>"+data[ s ].districtData[ d ].delta.recovered+"<br><b>Today deaths - </b>"+data[ s ].districtData[ d ].delta.deceased;
+active=data[ s ].districtData[ d ].active;
+recovered=data[ s ].districtData[ d ].recovered;
+deaths=data[ s ].districtData[ d ].deceased;
+document.getElementById('disp').innerHTML = dat.toLocaleString('en');
+})
+
+
+window.onload = function () {
+	var chart = new CanvasJS.Chart("chartContainer", {
+		title:{
+			text: "Current status in Madurai"              
+		},
+		data: [              
+		{
+		
+			type: "doughnut",
+			dataPoints: [
+				{ label: "active", y: active  },
+				{ label: "recovered", y: recovered  },
+				{ label: "deaths", y: deaths }
+			
+			]
+		}
+		]
+	});
+	chart.render();
+}
+
+}
+})
+</script><br><br>
+<div id="chartContainer" style="height: 320px; width: 100%;"></div>
+<div id="chart2" style="height: 320px; width: 100%;"><br><br>
+<center><span class="backspace"><b><input type="submit" class="btn btn-primary" name="upload" value=" Search Other Districts "></b></span></center></div>
+</div>
+<!--<img src="F://4th semester//Webophilia//mdugraph.jpg" height="250px" width="350px"/>
+
+<br><br><br>
+<img src="F://4th semester//Webophilia//TNgraph.jpg" height="250px" width="350px"/>-->
+
+
+
+
+
+<div class="col-md-7">
+<a class="twitter-timeline" href="https://twitter.com/Vijayabaskarofl?ref_src=twsrc%5Etfw">Tweets by Vijayabaskarofl</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+</div></div></div></body>
+</html>
