@@ -9,11 +9,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-
-
-
-
-
 </head>
 <body>
 
@@ -33,7 +28,6 @@
   <h2> </h2>
   <div class="panel panel-default">
     <div class="panel-heading">
-	
 
 
 <div class ="container">
@@ -41,22 +35,32 @@
 <center><h1>COVID-19 Madurai Tracker</h1></center></div></div>
   
 <div class="panel-body">
-<div class="col-md-5">  	
+<div class ="container">
+<p><B><I>Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.
+Most people infected with the COVID-19 virus will experience  </I></B></p>
+<p><B><I>mild to moderate respiratory illness and 
+recover without requiring special treatment.</I></B> </p>
+<p><B><I>Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.</I></B></p>
+
+<p><B><I>The best way to prevent and slow down transmission is be well informed about the COVID-19 virus, the disease it causes and how it spreads.</I></B></p>
+<p><B><I>Protect yourself and others from infection by washing your hands or using an alcohol based rub frequently and not touching your face.</I></B></p>
+
+
+</div>
+
+
+<div class="col-md-4">  	
 <h2><B>Corona Virus Statistics in Madurai<br></B></h2> 
 <p id="disp"></p>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+try{
 var url="https://api.covid19india.org/state_district_wise.json";
 var s="Tamil Nadu";
 var d="Madurai";
 var dat="";
 var active,recovered,deaths;
-$(document).ready(function(){
-init()
-
-function init(){
-
+var active,recovered,deaths;
 $.get(url,function(data){
 console.log(data);
 dat ="<b>State </b>"+s+"<br><br><b>District - </b>"+d +"<br><br><b> Total cases - </b>"+data[ s ].districtData[ d ].confirmed+
@@ -92,24 +96,37 @@ window.onload = function () {
 }
 
 }
-})
+catch(err)
+{
+alert('Error Occured , It may be network error.Please check your internet connection');
+}
+
+
+
 </script><br><br>
 <div id="chartContainer" style="height: 320px; width: 100%;"></div>
-<div id="chart2" style="height: 320px; width: 100%;"><br><br>
-<center><span class="backspace"><b><input type="submit" class="btn btn-primary" name="upload" value=" Search Other Districts "></b></span></center></div>
+
 </div>
-<!--<img src="F://4th semester//Webophilia//mdugraph.jpg" height="250px" width="350px"/>
-
-<br><br><br>
-<img src="F://4th semester//Webophilia//TNgraph.jpg" height="250px" width="350px"/>-->
-
-
-
+<div class="col-md-4">
+<div class='sk-ww-twitter-hashtag-feed' data-embed-id='40687'></div>
+<script src='https://www.sociablekit.com/app/embed/twitter-hashtag-feed/widget.js' async defer>
+</script>
+</div>
 
 
-<div class="col-md-7">
+
+<div class="col-md-4">
 <a class="twitter-timeline" href="https://twitter.com/Vijayabaskarofl?ref_src=twsrc%5Etfw">Tweets by Vijayabaskarofl</a>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
+
+</script></div>
+
+
+
+
 </div></div></div></body>
 </html>
+
+
+
+
